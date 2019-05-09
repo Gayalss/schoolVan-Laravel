@@ -31,3 +31,45 @@ Route::get('/home', 'HomeController@index');
   Route::post('/password/reset', 'Auth\AdminResetPasswordController@reset');
   Route::get('/password/reset/{token}', 'Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
   });
+
+///// /////////////////////////////////////////////////
+  Route::prefix('studentParent')->group(function() {
+    Route::get('/login', 'Auth\StudentParentLoginController@showLoginForm')->name('studentParent.login');
+    Route::post('/login', 'Auth\StudentParentLoginController@login')->name('studentParent.login.submit');
+    Route::get('/', 'StudentParentController@index')->name('studentParent.dashboard');
+
+    //password resets
+
+  //  Route::post('/password/email', 'Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
+  // Route::get('/password/reset', 'Auth\AdminForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
+  // Route::post('/password/reset', 'Auth\AdminResetPasswordController@reset');
+  // Route::get('/password/reset/{token}', 'Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
+  });
+
+///////////////////////////////////////////////////
+  Route::prefix('vanDriver')->group(function() {
+    Route::get('/login', 'Auth\VanDriverLoginController@showLoginForm')->name('vanDriver.login');
+    Route::post('/login', 'Auth\VanDriverLoginController@login')->name('vanDriver.login.submit');
+    Route::get('/', 'VanDriverController@index')->name('vanDriver.dashboard');
+
+    //password resets
+
+  //  Route::post('/password/email', 'Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
+  // Route::get('/password/reset', 'Auth\AdminForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
+  // Route::post('/password/reset', 'Auth\AdminResetPasswordController@reset');
+  // Route::get('/password/reset/{token}', 'Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
+  });
+
+//////////////////////////////////////////////////////////////////
+  Route::prefix('vanOwner')->group(function() {
+    Route::get('/login', 'Auth\VanOwnerLoginController@showLoginForm')->name('vanOwner.login');
+    Route::post('/login', 'Auth\VanOwnerLoginController@login')->name('vanOwner.login.submit');
+    Route::get('/', 'VanOwnerController@index')->name('vanOwner.dashboard');
+
+    //password resets
+
+  //  Route::post('/password/email', 'Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
+  // Route::get('/password/reset', 'Auth\AdminForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
+  // Route::post('/password/reset', 'Auth\AdminResetPasswordController@reset');
+  // Route::get('/password/reset/{token}', 'Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
+  });

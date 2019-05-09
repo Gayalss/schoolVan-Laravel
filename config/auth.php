@@ -41,22 +41,28 @@ return [
             'provider' => 'users',
         ],
 
-        'api' => [
-            'driver' => 'token',
-            'provider' => 'users',
-            'hash' => false,
-        ],
-
+        
         'admin' => [
             'driver' => 'session',
             'provider' => 'admins',
         ],
+        'studentParent' => [
+            'driver' => 'session',
+            'provider' => 'studentParents',
+        ],
+        'vanDriver' => [
+            'driver' => 'session',
+            'provider' => 'vanDrivers',
+        ],
+        'vanOwner' => [
+            'driver' => 'session',
+            'provider' => 'vanOwners',
+        ],
 
-        'admin-api' => [
-            'driver' => 'token',
-            'provider' => 'admins',
-            'hash' => false,
-        ], 
+        
+    
+
+        
     ],
 
     /*
@@ -81,16 +87,27 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Admin::class,
+        ],
+        'studentParents' => [
+            'driver' => 'eloquent',
+            'model' => App\StudentParent::class,
+        ],
+        'vanOwners' => [
+            'driver' => 'eloquent',
+            'model' => App\VanOwner::class,
+        ],
+        'vanDrivers' => [
+            'driver' => 'eloquent',
+            'model' => App\VanDriver::class,
+        ],
 
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
-
-        'admins' => [
-            'driver' => 'eloquent',
-            'model' => App\Admin::class,
-        ],
     ],
 
     /*
@@ -114,12 +131,25 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
         ],
-
         'admins' => [
             'provider' => 'admins',
             'table' => 'password_resets',
-            'expire' => 60,
+            'expire' => 15,
+        ],
+        'studentParents' => [
+            'provider' => 'studentParents',
+            'table' => 'password_resets',
+            'expire' => 15,
+        ],
+        'vanOwners' => [
+            'provider' => 'vanOwners',
+            'table' => 'password_resets',
+            'expire' => 15,
+        ],
+        'vanDrivers' => [
+            'provider' => 'vanDrivers',
+            'table' => 'password_resets',
+            'expire' => 15,
         ],
     ],
-
 ];

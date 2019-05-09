@@ -23,6 +23,24 @@ class RedirectIfAuthenticated
                     return redirect()->route('admin.dashboard');
                 }
                 break;
+
+            case 'studentParent':
+                if(Auth::guard($guard)->check()){
+                    return redirect()->route('studentParent.dashboard');
+                }
+                break;
+
+            case 'vanOwner':
+                if(Auth::guard($guard)->check()){
+                    return redirect()->route('vanOwner.dashboard');
+                }
+                break;
+                
+            case 'vanDriver':
+                if(Auth::guard($guard)->check()){
+                    return redirect()->route('vanDriver.dashboard');
+                }
+                break;            
             
             default:
                 if (Auth::guard($guard)->check()) {

@@ -26,6 +26,18 @@ class Handler extends ExceptionHandler
             case 'admin':
                 $login = 'admin.login';
                 break;
+
+            case 'studentParent':
+                $login = 'studentParent.login';
+                break;
+
+            case 'vanDriver':
+                $login = 'vanDriver.login';
+                break;
+
+            case 'vanOwner':
+                $login = 'vanOwner.login';
+                break;            
             
             default:
                 $login = 'login';
