@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-// use App\Notifications\AdminResetPasswordNotification;
+use App\Notifications\VanOwnerResetPasswordNotification;
 
 class VanOwner extends Authenticatable
 {
@@ -30,8 +30,8 @@ class VanOwner extends Authenticatable
         'password', 'remember_token',
     ];
 
-    // public function sendPasswordResetNotification($token)
-    // {
-    //     $this->notify(new AdminResetPasswordNotification($token));
-    // }
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new VanOwnerResetPasswordNotification($token));
+    }
 }

@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Route::get('/', function () {
+//     return view('schoolVanHomePage');
+// });
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
@@ -40,10 +44,10 @@ Route::get('/home', 'HomeController@index');
 
     //password resets
 
-  //  Route::post('/password/email', 'Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
-  // Route::get('/password/reset', 'Auth\AdminForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
-  // Route::post('/password/reset', 'Auth\AdminResetPasswordController@reset');
-  // Route::get('/password/reset/{token}', 'Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
+   Route::post('/password/email', 'Auth\StudentParentForgotPasswordController@sendResetLinkEmail')->name('studentParent.password.email');
+  Route::get('/password/reset', 'Auth\StudentParentForgotPasswordController@showLinkRequestForm')->name('studentParent.password.request');
+  Route::post('/password/reset', 'Auth\StudentParentResetPasswordController@reset');
+  Route::get('/password/reset/{token}', 'Auth\StudentParentResetPasswordController@showResetForm')->name('studentParent.password.reset');
   });
 
 ///////////////////////////////////////////////////
@@ -54,10 +58,10 @@ Route::get('/home', 'HomeController@index');
 
     //password resets
 
-  //  Route::post('/password/email', 'Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
-  // Route::get('/password/reset', 'Auth\AdminForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
-  // Route::post('/password/reset', 'Auth\AdminResetPasswordController@reset');
-  // Route::get('/password/reset/{token}', 'Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
+   Route::post('/password/email', 'Auth\VanDriverForgotPasswordController@sendResetLinkEmail')->name('vanDriver.password.email');
+  Route::get('/password/reset', 'Auth\VanDriverForgotPasswordController@showLinkRequestForm')->name('vanDriver.password.request');
+  Route::post('/password/reset', 'Auth\VanDriverResetPasswordController@reset');
+  Route::get('/password/reset/{token}', 'Auth\VanDriverResetPasswordController@showResetForm')->name('vanDriver.password.reset');
   });
 
 //////////////////////////////////////////////////////////////////
@@ -68,8 +72,8 @@ Route::get('/home', 'HomeController@index');
 
     //password resets
 
-  //  Route::post('/password/email', 'Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
-  // Route::get('/password/reset', 'Auth\AdminForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
-  // Route::post('/password/reset', 'Auth\AdminResetPasswordController@reset');
-  // Route::get('/password/reset/{token}', 'Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
+   Route::post('/password/email', 'Auth\VanOwnerForgotPasswordController@sendResetLinkEmail')->name('vanOwner.password.email');
+  Route::get('/password/reset', 'Auth\VanOwnerForgotPasswordController@showLinkRequestForm')->name('vanOwner.password.request');
+  Route::post('/password/reset', 'Auth\VanOwnerResetPasswordController@reset');
+  Route::get('/password/reset/{token}', 'Auth\VanOwnerResetPasswordController@showResetForm')->name('vanOwner.password.reset');
   });
