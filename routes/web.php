@@ -42,6 +42,9 @@ Route::get('/home', 'HomeController@index');
     Route::post('/login', 'Auth\StudentParentLoginController@login')->name('studentParent.login.submit');
     Route::get('/', 'StudentParentController@index')->name('studentParent.dashboard');
 
+    Route::get('/register', 'Auth\StudentParentRegisterController@showRegistrationForm');
+    Route::post('/register', 'Auth\StudentParentRegisterController@register')->name('studentParent.register.submit');
+
     //password resets
 
    Route::post('/password/email', 'Auth\StudentParentForgotPasswordController@sendResetLinkEmail')->name('studentParent.password.email');
@@ -55,6 +58,8 @@ Route::get('/home', 'HomeController@index');
     Route::get('/login', 'Auth\VanDriverLoginController@showLoginForm')->name('vanDriver.login');
     Route::post('/login', 'Auth\VanDriverLoginController@login')->name('vanDriver.login.submit');
     Route::get('/', 'VanDriverController@index')->name('vanDriver.dashboard');
+    Route::get('/register', 'Auth\VanDriverRegisterController@showRegistrationForm');
+    Route::post('/register', 'Auth\VanDriverRegisterController@register')->name('vanDriver.register.submit');
 
     //password resets
 
@@ -69,6 +74,8 @@ Route::get('/home', 'HomeController@index');
     Route::get('/login', 'Auth\VanOwnerLoginController@showLoginForm')->name('vanOwner.login');
     Route::post('/login', 'Auth\VanOwnerLoginController@login')->name('vanOwner.login.submit');
     Route::get('/', 'VanOwnerController@index')->name('vanOwner.dashboard');
+    Route::get('/register', 'Auth\VanOwnerRegisterController@showRegistrationForm');
+    Route::post('/register', 'Auth\VanOwnerRegisterController@register')->name('vanOwner.register.submit');
 
     //password resets
 

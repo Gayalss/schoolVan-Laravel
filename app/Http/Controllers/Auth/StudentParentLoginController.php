@@ -8,6 +8,9 @@ use Auth;
 
 class StudentParentLoginController extends Controller
 {
+
+    protected $redirectTo = '/studentParent';
+
     public function __construct()
     {
       $this->middleware('guest:studentParent');
