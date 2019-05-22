@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class StudentParentController extends Controller
+class VanOwnerPagesController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -13,7 +13,7 @@ class StudentParentController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:studentParent');
+        $this->middleware('auth:vanOwner');
     }
 
     /**
@@ -21,11 +21,18 @@ class StudentParentController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function manage()
     {
-        return view('studentParent');
+        return view('vanOwnerManage');
     }
 
-   
-    
+    public function payment()
+    {
+        return view('vanOwnerPayment');
+    }
+
+    public function reports()
+    {
+        return view('vanOwnerReports');
+    }
 }

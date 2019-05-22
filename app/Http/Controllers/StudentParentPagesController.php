@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class StudentParentController extends Controller
+class StudentParentPagesController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -21,11 +21,21 @@ class StudentParentController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function attendance()
     {
-        return view('studentParent');
+        return view('studentParentAttendance');
     }
 
+    public function location()
+    {
+        return view ('studentParentLocation');
+    }
+
+
+    public function newVans()
+    {
+        return view ('studentParentNewSchoolVans');
+    }
    
     
 }

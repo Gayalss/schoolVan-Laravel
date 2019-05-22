@@ -41,6 +41,11 @@ Route::get('/home', 'HomeController@index');
     Route::get('/login', 'Auth\StudentParentLoginController@showLoginForm')->name('studentParent.login');
     Route::post('/login', 'Auth\StudentParentLoginController@login')->name('studentParent.login.submit');
     Route::get('/', 'StudentParentController@index')->name('studentParent.dashboard');
+    Route::get('/attendance', 'StudentParentPagesController@attendance')->name('studentParent.attendance');
+    Route::get('/location', 'StudentParentPagesController@location')->name('studentParent.location');
+    Route::get('/NewVans', 'StudentParentPagesController@newVans')->name('studentParent.newVans');
+    
+
     
 
     Route::get('/register', 'Auth\StudentParentRegisterController@showRegistrationForm');
@@ -74,9 +79,32 @@ Route::get('/home', 'HomeController@index');
   Route::prefix('vanOwner')->group(function() {
     Route::get('/login', 'Auth\VanOwnerLoginController@showLoginForm')->name('vanOwner.login');
     Route::post('/login', 'Auth\VanOwnerLoginController@login')->name('vanOwner.login.submit');
-    Route::get('/', 'VanOwnerController@index')->name('vanOwner.dashboard');
     Route::get('/register', 'Auth\VanOwnerRegisterController@showRegistrationForm');
     Route::post('/register', 'Auth\VanOwnerRegisterController@register')->name('vanOwner.register.submit');
+    Route::get('/', 'VanOwnerController@index')->name('vanOwner.dashboard');
+    Route::get('/manage', 'VanOwnerPagesController@manage')->name('vanOwner.manage');
+    Route::get('/payment', 'VanOwnerPagesController@payment')->name('vanOwner.payment');
+    Route::get('/reports', 'VanOwnerPagesController@reports')->name('vanOwner.reports');
+
+
+    //password resets
+
+   Route::post('/password/email', 'Auth\VanOwnerForgotPasswordController@sendResetLinkEmail')->name('vanOwner.password.email');
+  Route::get('/password/reset', 'Auth\VanOwnerForgotPasswordController@showLinkRequestForm')->name('vanOwner.password.request');
+  Route::post('/password/reset', 'Auth\VanOwnerResetPasswordController@reset');
+  Route::get('/password/reset/{token}', 'Auth\VanOwnerResetPasswordController@showResetForm')->name('vanOwner.password.reset');
+  });
+
+   Route::prefix('School')->group(function() {
+    Route::get('/login', 'Auth\SchoolLoginController@showLoginForm')->name('School.login');
+    Route::post('/login', 'Auth\SchoolLoginController@login')->name('School.login.submit');
+    Route::get('/register', 'Auth\SchoolRegisterController@showRegistrationForm');
+    Route::post('/register', 'Auth\SchoolRegisterController@register')->name('School.register.submit');
+    Route::get('/', 'SchoolController@index')->name('School.dashboard');
+    // Route::get('/manage', 'VanOwnerPagesController@manage')->name('vanOwner.manage');
+    // Route::get('/payment', 'VanOwnerPagesController@payment')->name('vanOwner.payment');
+    // Route::get('/reports', 'VanOwnerPagesController@reports')->name('vanOwner.reports');
+
 
     //password resets
 
@@ -87,3 +115,4 @@ Route::get('/home', 'HomeController@index');
   });
 
 Route::resource('UserSignUp', 'UserSignUpController');
+Route::resource('UserLogIn', 'UserLogInController');
