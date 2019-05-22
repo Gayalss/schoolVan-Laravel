@@ -25,4 +25,6 @@ class StudentParentController extends Controller
     {
         return view('studentParent');
     }
+
+    
 }

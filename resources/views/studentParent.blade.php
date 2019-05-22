@@ -13,8 +13,9 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                    
                     You are logged in as PARENT!
+                    
                 </div>
             </div>
         </div>

@@ -15,10 +15,14 @@ class CreateStudentParentsTable extends Migration
     {
         Schema::create('studentParents', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('firstName');
+            $table->string('lastName');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('mobileNumber');
             $table->string('password');
+            $table->string('confirmPassword');
+            $table->string('city');
+            $table->string('province');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -15,10 +15,18 @@ class CreateVanOwnersTable extends Migration
     {
         Schema::create('vanOwners', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('firstName');
+            $table->string('lastName');
+            $table->string('address');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('homeNumber');
+            $table->string('mobileNumber');
+            $table->string('city');
+            $table->string('province');
+            $table->string('gender');
+            $table->string('photo')->nullable();
             $table->string('password');
+            $table->string('confirmPassword');
             $table->rememberToken();
             $table->timestamps();
         });

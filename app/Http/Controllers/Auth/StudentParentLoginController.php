@@ -18,7 +18,7 @@ class StudentParentLoginController extends Controller
 
     public function showLoginForm()
     {
-      return view('auth.studentParent-login');
+      return view('auth.loginParent');
     }
 
     public function login(Request $request)

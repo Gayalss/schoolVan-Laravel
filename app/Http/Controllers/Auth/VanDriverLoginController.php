@@ -15,7 +15,7 @@ class VanDriverLoginController extends Controller
 
     public function showLoginForm()
     {
-      return view('auth.vanDriver-login');
+      return view('auth.loginSchoolVanDriver');
     }
 
     public function login(Request $request)

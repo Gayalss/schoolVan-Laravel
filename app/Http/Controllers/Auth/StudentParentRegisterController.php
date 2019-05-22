@@ -45,7 +45,7 @@ class StudentParentRegisterController extends Controller
 
     public function showRegistrationForm()
     {
-        return view('auth.studentParentregister');
+        return view('auth.signUpParent');
     }
 
     /**
@@ -88,19 +88,31 @@ class StudentParentRegisterController extends Controller
     public function register(Request $request){
 
         $this->validate($request, [
-        'name'   => 'required',
-        'email'   => 'required|email|unique:student_parents',
-        'password' => 'required'
+              
+            'firstName'=>'required',
+            'lastName'=>'required',
+            'email'   => 'required|email|unique:student_parents',
+            'mobileNumber'=>'required',
+            'password'=>'required',
+            'confirmPassword'=>'required',
+            'city'=>'required',
+            'province'=>'required'
         
       ]);
 
-      $StudentParent=new StudentParent;
-      $StudentParent->name = $request -> input('name'); 
-      $StudentParent->email = $request -> input('email');
-      $StudentParent->password = Hash::make($request -> input('password')) ;   
+        $StudentParent=new StudentParent;
+        $StudentParent->firstName = $request -> input('firstName');
+        $StudentParent->lastName = $request -> input('lastName');
+        $StudentParent->email = $request -> input('email');
+        $StudentParent->mobileNumber = $request -> input('mobileNumber');
+        $StudentParent->password = Hash::make($request -> input('password')); 
+        $StudentParent->confirmPassword =  Hash::make($request -> input('confirmPassword')); 
+        $StudentParent->city = $request -> input('city');
+        $StudentParent->province = $request -> input('province');
+        $StudentParent->save();   
      
 
-      $StudentParent->save();
+        $StudentParent->save();
 
     //   // auth()->login($user);
     // return redirect(route('studentParent.dashboard'));

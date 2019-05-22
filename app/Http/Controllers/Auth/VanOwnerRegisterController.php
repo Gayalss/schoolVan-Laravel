@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Auth;
+use Image;
 
 class VanOwnerRegisterController extends Controller
 {
@@ -45,7 +46,7 @@ class VanOwnerRegisterController extends Controller
 
     public function showRegistrationForm()
     {
-        return view('auth.vanOwnerregister');
+        return view('auth.signUpSchoolVanOwner');
     }
 
     /**
@@ -85,18 +86,50 @@ class VanOwnerRegisterController extends Controller
     // }
 
     public function register(Request $request){
-
+       
         $this->validate($request, [
-        'name'   => 'required',
+
+        'firstName'   => 'required',
+        'lastName'   => 'required',
+        'address'   => 'required',
         'email'   => 'required|email|unique:van_owners',
-        'password' => 'required'
+        'homeNumber' => 'required',
+        'mobileNumber' => 'required',
+        'city' => 'required',
+        'province' => 'required',
+        'gender' => 'required',
+        // 'photo' => 'required',
+        'password' => 'required',
+        'confirmPassword' => 'required'
         
       ]);
+        
 
       $VanOwner=new VanOwner;
-      $VanOwner->name = $request -> input('name'); 
+      $VanOwner->firstName = $request -> input('firstName'); 
+      $VanOwner->lastName = $request -> input('lastName');
+      $VanOwner->address = $request -> input('address');
       $VanOwner->email = $request -> input('email');
-      $VanOwner->password = Hash::make($request -> input('password')) ;   
+      $VanOwner->homeNumber = $request -> input('homeNumber');
+      $VanOwner->mobileNumber = $request -> input('mobileNumber');
+      $VanOwner->city = $request -> input('city');
+      $VanOwner->province = $request -> input('province');
+      $VanOwner->gender = $request -> input('gender');
+      
+   
+
+
+      if($request ->hasfile('photo')){
+        $photo = $request->file('photo');
+        $filename = time().'.'.$photo->getClientOriginalExtension();
+        $location = public_path('Images/vanOwner/ProfilePictures/'.$filename);
+        Image::make($photo)->save($location);
+
+        $VanOwner->photo=$filename;
+      } 
+     
+      $VanOwner->password = Hash::make($request -> input('password'));
+      $VanOwner->confirmPassword = Hash::make($request -> input('confirmPassword'));   
      
 
       $VanOwner->save();
@@ -105,5 +138,7 @@ class VanOwnerRegisterController extends Controller
         // if successful, then redirect to their intended location
         return redirect()->intended(route('vanOwner.dashboard'));
       }
+      
     }
+
 }

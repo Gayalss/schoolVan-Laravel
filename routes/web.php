@@ -41,6 +41,7 @@ Route::get('/home', 'HomeController@index');
     Route::get('/login', 'Auth\StudentParentLoginController@showLoginForm')->name('studentParent.login');
     Route::post('/login', 'Auth\StudentParentLoginController@login')->name('studentParent.login.submit');
     Route::get('/', 'StudentParentController@index')->name('studentParent.dashboard');
+    
 
     Route::get('/register', 'Auth\StudentParentRegisterController@showRegistrationForm');
     Route::post('/register', 'Auth\StudentParentRegisterController@register')->name('studentParent.register.submit');
@@ -84,3 +85,5 @@ Route::get('/home', 'HomeController@index');
   Route::post('/password/reset', 'Auth\VanOwnerResetPasswordController@reset');
   Route::get('/password/reset/{token}', 'Auth\VanOwnerResetPasswordController@showResetForm')->name('vanOwner.password.reset');
   });
+
+Route::resource('UserSignUp', 'UserSignUpController');
