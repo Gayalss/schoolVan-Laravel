@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Children;
 
 use Illuminate\Http\Request;
 
@@ -22,8 +23,18 @@ class StudentParentController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
+    {   
+        $Childrens=Children::all();
+        return view('StudentParent/studentParent')->with('Childrens', $Childrens);
+    }
+
+    function fetch(Request $request)
     {
-        return view('studentParent');
+       $selectedStudent =$request->get('selectedStudent');
+       // $value  =$request->get('value');
+       // $dependent=$request->get('dependent');
+       $data =Children::where('firstName',$selectedStudent)->get();
+        echo $data ;
     }
 
    

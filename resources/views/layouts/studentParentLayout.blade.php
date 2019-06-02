@@ -17,6 +17,8 @@
     {{-- <link rel="stylesheet" type="text/css" href="{{ url('CSS/brands.min.css') }}"> --}}
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"> 
 
+    @yield('styles')
+
     <title>Log in!</title>
   </head>
   <body style="background-color: #F4FCFF">
@@ -30,10 +32,11 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="nav navbar-nav ml-auto">
       <li class="nav-item @yield('active1')"><a class="nav-link" href="{{ route('studentParent.dashboard') }}">Home</a></li>
-      <li class="nav-item @yield('active2')"><a class="nav-link" href="{{ route('studentParent.attendance') }}">Attendance</a></li>
-      <li class="nav-item @yield('active3')"><a class="nav-link" href="{{ route('studentParent.location') }}">Location</a></li>
-      <li class="nav-item @yield('active4')"><a class="nav-link" href="{{ route('studentParent.newVans') }}">New School Vans</a></li>
-      <li class="nav-item @yield('active5')"><a class="nav-link" href="#">Settings</a></li>
+      <li class="nav-item @yield('active6')"><a class="nav-link" href="{{ ' /studentParent/manageChildren'}}">Manage Children</a></li>
+      <li class="nav-item @yield('active2')"><a class="nav-link" href="{{ '/studentParent/attendance' }}">Attendance</a></li>
+      <li class="nav-item @yield('active3')"><a class="nav-link" href="{{'/studentParent/location'}}">Location</a></li>
+      <li class="nav-item @yield('active4')"><a class="nav-link" href="{{'/studentParent/newVans'}}">New School Vans</a></li>
+      <li class="nav-item @yield('active5')"><a class="nav-link" href="{{'/studentParent/settings'}}">Settings</a></li>
       <li class="nav-item dropdown">
           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
           {{ Auth::user()->firstName }} <span class="caret"></span>
@@ -68,7 +71,10 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
     <script type="text/javascript" src="{{ url('Js/jquery.min.js') }}"></script>
+    
+@yield('Scripts')
     
     {{-- <script src="{{ url('JS/fontawseome.all.min.js') }}"></script> --}}
     {{-- <script src="{{ url('JS/brands.min.js') }}"></script> --}}

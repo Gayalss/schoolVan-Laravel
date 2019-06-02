@@ -30,6 +30,11 @@ class VanOwner extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function vehicles()
+    {
+        return $this->hasMany('App\Vehicle');
+    }
+
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new VanOwnerResetPasswordNotification($token));

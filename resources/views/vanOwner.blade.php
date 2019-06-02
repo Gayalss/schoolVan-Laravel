@@ -1,4 +1,7 @@
 @extends('layouts.schoolVanOwnerLayout')
+@section('active1')
+active
+@endsection
 
 @section('BodyContent')
 

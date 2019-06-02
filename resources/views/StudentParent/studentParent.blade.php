@@ -25,11 +25,14 @@ active
               
     </div> 
     <div class="form-group col-md-4 col-xs-12">
-      <label for="tripType">Select Student</label>
-      <select id="tripType" class="form-control">
-        <option selected>Ishara Ramanayake</option>
-        <option>Dilitha Ramanayake</option>
-        <option>Sineth Ramanayake</option>
+      <label for="selectStudent">Select Student</label>
+      <select id="selectStudent" class="form-control dynamic" data-dependent="state">
+        @foreach($Childrens as $Children)
+          <option selected value="{{$Children->firstName}}">{{$Children->firstName}} {{$Children->lastName}}</option>
+        @endforeach
+        {{-- <option selected>Ishara Ramanayake</option> --}}
+         
+         
       </select>
     </div>
     <div class="form-group col-md-4">
@@ -64,8 +67,11 @@ active
       
     
      <!--  <div class="row"> -->
+      <div class="stu"></div>
+      
         
         <form style="margin:5% auto">
+          {{@csrf_field()}}
           <div class="row">
             <h3 style="text-align: center; margin:auto;"> Children Details</h3>
             <!-- <div class="form-group col-md-6">
@@ -86,16 +92,16 @@ active
             
             <div class="form-group col-md-4">
               <label for="photo">Photo</label>
-              {{-- <img src="../Images/schoolChildrenPhoto.jpg" class="img-fluid" alt="Responsive image"> --}}
+              <img  class="img-fluid rounded-circle" alt="Responsive image" id="photo" style="width:200px;height: 200px">
             </div>
             <div class="form-group col-md-4">
               <div class="row">
                 <label for="firstName">Name</label>
-                <input type="text" class="form-control" id="firstName" placeholder="First Name" value="Sineth Ramanayake" >                
+                <input type="text" class="form-control dynamic" id="firstName" placeholder="First Name" readonly=""  >                
               </div>
               <div class="row">
                 <label for="school">School</label>
-                <input type="text" class="form-control" id="school" value="Mahanama College Colombo 03">                
+                <input type="text" class="form-control" id="schoolName" placeholder="School Name" value="" readonly="">                
               </div>
               
             </div>
@@ -205,4 +211,43 @@ active
     </div>
   </div>
 </div> <!-- First Card Ends -->
+@section('Scripts')
+  <script type="text/javascript">
+    $('#selectStudent').on('change', function() {
+    var selectedStudent = $(this).val();
+    
+    
+    
+        if(selectedStudent!='')
+        {
+
+          
+          $.ajax({
+              url:"{{route('studentParent.fetch')}}",
+              method:"POST",
+              data:{
+                "_token": "{{ csrf_token() }}",
+                selectedStudent:selectedStudent,
+              },
+              success:function(result)
+              {
+               
+                var obj = JSON.parse(result);
+                console.log(obj[0].firstName);
+                
+
+
+                document.getElementById("firstName").value  = obj[0].firstName+" "+
+                 obj[0].lastName;
+                document.getElementById("schoolName").value  = obj[0].schoolName ;
+                document.getElementById("photo").src  = "Images/Parent/Childrens/"+obj[0].photo ;
+              }
+          })
+
+        }
+    });
+    
+  </script>
+
+@endsection
 @endsection

@@ -61,7 +61,7 @@
                   </div>
                 </div>
             </div> --}}
-             <div class="form-group col-md-6">
+            <div class="form-group col-md-6">
               <label for="photo">Photo</label>
               <input type="file" class="form-control-file" id="photo" name="photo" placeholder="photo">
             </div>

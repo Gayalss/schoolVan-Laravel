@@ -9,7 +9,7 @@ use Auth;
 class StudentParentLoginController extends Controller
 {
 
-    protected $redirectTo = '/studentParent';
+    protected $redirectTo = '/StudentParent/studentParent';
 
     public function __construct()
     {

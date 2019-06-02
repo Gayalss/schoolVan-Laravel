@@ -30,7 +30,7 @@ class SchoolRegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/school';
 
     /**
      * Create a new controller instance.
@@ -117,12 +117,12 @@ class SchoolRegisterController extends Controller
         $School->save();
 
     // //   // auth()->login($user);
-     // return redirect('/home');
+      //  return redirect('/school');
 
-     // if (Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
-     //    // if successful, then redirect to their intended location
-     //    return redirect()->intended('/home');
-     //  }
+     if (Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
+        // if successful, then redirect to their intended location
+        return redirect()->intended('/school');
+      }
 
     }
 }

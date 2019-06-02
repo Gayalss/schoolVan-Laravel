@@ -26,10 +26,10 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="nav navbar-nav ml-auto">
-      <li class="nav-item active"><a class="nav-link" href="{{ route('vanOwner.dashboard') }}">Home</a></li>
-      <li class="nav-item "><a class="nav-link" href="{{ route('vanOwner.manage') }}">Manage Driver</a></li>
-      <li class="nav-item"><a class="nav-link" href="{{ route('vanOwner.payment') }}">Payment</a></li>
-      <li class="nav-item "><a class="nav-link" href="{{ route('vanOwner.reports') }}">Reports</a></li>
+      <li class="nav-item @yield('active1')" ><a class="nav-link" href="{{ route('vanOwner.dashboard') }}">Home</a></li>
+      <li class="nav-item @yield('active2')" ><a class="nav-link" href="{{ route('manageVan.index') }}">Manage Van</a></li>
+      <li class="nav-item @yield('active3')" ><a class="nav-link" href="{{ route('payments.index') }}">Payment</a></li>
+      <li class="nav-item @yield('active4')" ><a class="nav-link" href="{{ route('reports.index') }}">Reports</a></li>
       <li class="nav-item dropdown">
           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
           {{ Auth::user()->firstName }} <span class="caret"></span>

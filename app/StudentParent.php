@@ -4,15 +4,21 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
- use App\Notifications\StudentParentResetPasswordNotification;
+use App\Notifications\StudentParentResetPasswordNotification;
 
 class StudentParent extends Authenticatable
 {
     use Notifiable;
 
+
+
     protected $guard = 'studentParent';
 
-    /**
+    public function childrens()
+    {
+        return $this->hasMany('App\Children');
+    }
+    /**  
      * The attributes that are mass assignable.
      *
      * @var array

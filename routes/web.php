@@ -41,9 +41,20 @@ Route::get('/home', 'HomeController@index');
     Route::get('/login', 'Auth\StudentParentLoginController@showLoginForm')->name('studentParent.login');
     Route::post('/login', 'Auth\StudentParentLoginController@login')->name('studentParent.login.submit');
     Route::get('/', 'StudentParentController@index')->name('studentParent.dashboard');
-    Route::get('/attendance', 'StudentParentPagesController@attendance')->name('studentParent.attendance');
-    Route::get('/location', 'StudentParentPagesController@location')->name('studentParent.location');
-    Route::get('/NewVans', 'StudentParentPagesController@newVans')->name('studentParent.newVans');
+    Route::post('/', 'StudentParentController@fetch')->name('studentParent.fetch');
+    // Route::get('/manageChildren','StudentParentPagesController@manageChildren')->name('studentParent.manageChildren');
+    // Route::post('/manageChildren','StudentParentPagesController@createChildren')->name('studentParent.createChildren');
+    // Route::get('/UpdateChildren','StudentParentPagesController@test')->name('studentParent.test');
+    Route::resource('manageChildren', 'StudentParent\ChildrenManageController');
+    Route::resource('attendance', 'StudentParent\ChildrenAttendanceController');
+    Route::resource('location', 'StudentParent\ChildrenLocationController');
+    Route::resource('newVans', 'StudentParent\ChildrenNewSchoolVanController');
+    Route::resource('settings', 'StudentParent\SettingController');
+    
+
+    // Route::get('/attendance', 'StudentParentPagesController@attendance')->name('studentParent.attendance');
+    // Route::get('/location', 'StudentParentPagesController@location')->name('studentParent.location');
+    // Route::get('/NewVans', 'StudentParentPagesController@newVans')->name('studentParent.newVans');
     
 
     
@@ -82,9 +93,14 @@ Route::get('/home', 'HomeController@index');
     Route::get('/register', 'Auth\VanOwnerRegisterController@showRegistrationForm');
     Route::post('/register', 'Auth\VanOwnerRegisterController@register')->name('vanOwner.register.submit');
     Route::get('/', 'VanOwnerController@index')->name('vanOwner.dashboard');
-    Route::get('/manage', 'VanOwnerPagesController@manage')->name('vanOwner.manage');
-    Route::get('/payment', 'VanOwnerPagesController@payment')->name('vanOwner.payment');
-    Route::get('/reports', 'VanOwnerPagesController@reports')->name('vanOwner.reports');
+    // Route::get('/manage', 'VanOwnerPagesController@manage')->name('vanOwner.manage');
+    // Route::get('/payment', 'VanOwnerPagesController@payment')->name('vanOwner.payment');
+    // Route::get('/reports', 'VanOwnerPagesController@reports')->name('vanOwner.reports');
+
+    Route::resource('manageVan', 'VanOwner\ManageVanController');
+    Route::resource('payments', 'VanOwner\PaymentController');
+    Route::resource('reports', 'VanOwner\ReportController');
+    Route::resource('routes', 'VanOwner\RouteController');
 
 
     //password resets
@@ -100,7 +116,7 @@ Route::get('/home', 'HomeController@index');
     Route::post('/login', 'Auth\SchoolLoginController@login')->name('School.login.submit');
     Route::get('/register', 'Auth\SchoolRegisterController@showRegistrationForm');
     Route::post('/register', 'Auth\SchoolRegisterController@register')->name('School.register.submit');
-    Route::get('/', 'SchoolController@index')->name('School.dashboard');
+    // Route::get('/', 'SchoolController@index')->name('School.dashboard');
     // Route::get('/manage', 'VanOwnerPagesController@manage')->name('vanOwner.manage');
     // Route::get('/payment', 'VanOwnerPagesController@payment')->name('vanOwner.payment');
     // Route::get('/reports', 'VanOwnerPagesController@reports')->name('vanOwner.reports');
