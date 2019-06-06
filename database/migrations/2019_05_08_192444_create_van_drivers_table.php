@@ -21,7 +21,7 @@ class CreateVanDriversTable extends Migration
             $table->string('email')->unique();
             // $table->string('homeNumber');
             $table->string('mobileNumber');
-            $table->string('nic');
+            $table->string('nic')->unique();
             $table->string('photo')->nullable();
             $table->string('city');
             $table->string('province');

@@ -30,10 +30,10 @@ Route::get('/home', 'HomeController@index');
 
     //password resets
 
-   Route::post('/password/email', 'Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
-  Route::get('/password/reset', 'Auth\AdminForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
-  Route::post('/password/reset', 'Auth\AdminResetPasswordController@reset');
-  Route::get('/password/reset/{token}', 'Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
+    Route::post('/password/email', 'Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
+    Route::get('/password/reset', 'Auth\AdminForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
+    Route::post('/password/reset', 'Auth\AdminResetPasswordController@reset');
+    Route::get('/password/reset/{token}', 'Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
   });
 
 ///// /////////////////////////////////////////////////
@@ -78,6 +78,8 @@ Route::get('/home', 'HomeController@index');
     Route::get('/register', 'Auth\VanDriverRegisterController@showRegistrationForm');
     Route::post('/register', 'Auth\VanDriverRegisterController@register')->name('vanDriver.register.submit');
 
+    Route::resource('profile', 'VanDriver\SchoolVanDriverProfileController');
+
     //password resets
 
    Route::post('/password/email', 'Auth\VanDriverForgotPasswordController@sendResetLinkEmail')->name('vanDriver.password.email');
@@ -98,9 +100,11 @@ Route::get('/home', 'HomeController@index');
     // Route::get('/reports', 'VanOwnerPagesController@reports')->name('vanOwner.reports');
 
     Route::resource('manageVan', 'VanOwner\ManageVanController');
+    Route::post('manageDriver/search','VanOwner\ManageDriverController@search')->name('manageDriver.search');
+    Route::resource('manageDriver', 'VanOwner\ManageDriverController');
     Route::resource('payments', 'VanOwner\PaymentController');
     Route::resource('reports', 'VanOwner\ReportController');
-    Route::resource('routes', 'VanOwner\RouteController');
+    Route::resource('routes', 'VanOwner\ManageRouteController');
 
 
     //password resets

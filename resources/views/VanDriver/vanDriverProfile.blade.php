@@ -1,5 +1,5 @@
 @extends('layouts.schoolVanDriverLayout')
-@section('active1')
+@section('active2')
 active
 @endsection
 
@@ -7,7 +7,6 @@ active
 
 <!--Body starts -->
 
-<span style="float: left;"><h1 >Welcome {{ Auth::user()->firstName }}</h1></span>
 
 <br><br>
 

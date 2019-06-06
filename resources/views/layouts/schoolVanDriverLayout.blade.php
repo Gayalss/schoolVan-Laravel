@@ -14,7 +14,7 @@
     {{-- <link rel="stylesheet" type="text/css" href="{{ url('CSS/brands.min.css') }}"> --}}
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"> 
 
-    <title>School Van Owner Home Page!</title>
+    <title>School Van Driver!</title>
   </head>
 <body style="background-color: #F4FCFF">
    
@@ -26,15 +26,12 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="nav navbar-nav ml-auto">
-      <li class="nav-item @yield('active1')" ><a class="nav-link" href="{{ route('vanOwner.dashboard') }}">Home</a></li>
-      <li class="nav-item @yield('active2')" ><a class="nav-link" href="{{ route('manageVan.index') }}">Manage Van</a></li>
-      <li class="nav-item @yield('active6')" ><a class="nav-link" href="{{ route('manageDriver.index') }}">Manage Driver</a></li>
-      <li class="nav-item @yield('active5')" ><a class="nav-link" href="{{ route('routes.index') }}">Manage Route</a></li>
-      <li class="nav-item @yield('active3')" ><a class="nav-link" href="{{ route('payments.index') }}">Payment</a></li>
-      <li class="nav-item @yield('active4')" ><a class="nav-link" href="{{ route('reports.index') }}">Reports</a></li>
+      <li class="nav-item @yield('active1')" ><a class="nav-link" href="{{ route('vanDriver.dashboard') }}">Home</a></li>
+      <li class="nav-item @yield('active2')" ><a class="nav-link" href="{{ route('profile.index') }}">Profile</a></li>
+      
       <li class="nav-item dropdown">
           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-          {{ Auth::user()->firstName }} <span class="caret"></span>
+          {{Auth::user()->firstName }} <span class="caret"></span>
           </a>
 
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -62,9 +59,6 @@
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
    <script type="text/javascript" src="{{ url('Js/jquery.min.js') }}"></script>
-
-@yield('Scripts')
-
     
     {{-- <script src="{{ url('JS/fontawseome.all.min.js') }}"></script> --}}
     {{-- <script src="{{ url('JS/brands.min.js') }}"></script> --}}
@@ -76,7 +70,7 @@
    <script type="text/javascript" src="js/smoothscroll.js"></script>  -->
    
   
-   {{-- <script type="text/javascript">
+   <script type="text/javascript">
 
      function myfunction(){
       var selectedAccountType=document.getElementById('accountType').value;
@@ -91,7 +85,7 @@
   });
      
 
-   </script> --}}
+   </script>
   <!-- Footer starts -->
   <footer id="footer">
     <div class="footer-top wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
