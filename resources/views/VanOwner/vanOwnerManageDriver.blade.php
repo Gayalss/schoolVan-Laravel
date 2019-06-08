@@ -85,7 +85,7 @@ active
         <tbody class="tbody">
           
         </tbody>
-        <div class="nothing" id="nothing"></div>
+        
 
       </table>
     </div>
@@ -176,11 +176,11 @@ $(document).ready(function(){
         searchDriver:searchDriver,
       },
       // data:{query:query},
-      success:function(result)
+      success:function(data)
       {
             
-        $('.tbody').html(result);
-        $
+        // $('.tbody').html(result);
+        
           // console.log(result);
 
          //  $.each(result,function(value){
@@ -235,8 +235,20 @@ $(document).ready(function(){
         // document.getElementById("photo").src  = "Images/vanDriver/ProfilePictures/"+obj[0].photo ;
         // document.getElementById("firstName").value  = obj[0].firstName+" "+
         // obj[0].lastName;
+        console.log(data);
         
+        var SearchResult = '';
+        data.forEach(element=>{
+         
+          SearchResult += '<tr><td><img src={{url('Images/vanDriver/ProfilePictures')}}/'+element.photo+' width="100"></td><td>' +element.firstName+'</td><td>'+element.email + '</td><td>'+element.mobileNumber+ '</td><td>'+element.province+'</td><td>'+element.city+'</td><td>'+'<button type="submit" class="btn btn-success btn-block">Add </button>'+'</td></tr>';
+        });
+
+        console.log(SearchResult);
+        // SearchResult+='</tbody>'
+        $('.tbody').html(SearchResult);
+
         
+
       }
     });
   }

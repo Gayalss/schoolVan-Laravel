@@ -10,6 +10,7 @@ class Children extends Model
 	
     public function studenParent()
     {
-    	return $this->belongsTo('StudentParent');
+    	return $this->belongsTo('StudentParent','studenParentEmail'); 
+
     }
 }

@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Auth;
 use Image;
 use Session;
+use Illuminate\Support\Facades\Input; 
 
 
 class ManageRouteController extends Controller
@@ -47,7 +48,32 @@ class ManageRouteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $this->validate($request, [
+        
+        'selectVehicle'   => 'required',
+        'selectDriver'   => 'required',
+        'schools'   => 'required',
+        'checkPoints'=>'required',
+        'tripType' => 'required',
+        'schoolTime' => 'required',
+        
+        
+        
+      ]);
+         // echo "string";
+        $schools = $request -> input('schools');
+
+        $Vehicle=new Vehicle;
+        $Vehicle->vanOwnerEmail=  Auth::user()->email;
+        $Vehicle->vehicleType  = $request -> input('vehicleType'); 
+        $Vehicle->vehicleModel   = $request -> input('vehicleModel');
+        $Vehicle->color = $request -> input('color');
+        $Vehicle->totalSeats        = $request -> input('totalSeats');
+        $Vehicle->numberPlate        = $request -> input('numberPlate');
+        $Vehicle->manufacturedYear     = $request -> input('manufacturedYear');
+        foreach ($schools as $key => $school) {
+            echo $school;
+        }
     }
 
     /**

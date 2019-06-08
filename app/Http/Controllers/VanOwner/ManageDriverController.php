@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Auth;
 use Image;
 use Session;
+use Response;
 
 
 class ManageDriverController extends Controller
@@ -63,24 +64,26 @@ class ManageDriverController extends Controller
                                    ->orWhere('city','LIKE','%'.$request->searchDriver."%")
                                    ->get();
 
-        if($selectedDriver)
-        {
-            foreach ($selectedDriver as $key => $driver) {
-                $output.='<tr>'.
-                '<td>'.'<img src=url('."Images"."/"."vanDriver"."/"."ProfilePictures".')/'."$driver->photo"."width"."="."100".'>'.'</td>'.
-                '<td>'.$driver->firstName.'</td>'.
-                '<td>'.$driver->email.'</td>'.
-                '<td>'.$driver->mobileNumber.'</td>'.
-                '<td>'.$driver->province.'</td>'.
-                '<td>'.$driver->city.'</td>'.
-                '<td>'.'<button type="submit" class="btn btn-success btn-block">Add </button>'.'</td>'.
-                '</tr>';
-            }
-            return Response($output);
 
+        return Response::json($selectedDriver);
+        // if($selectedDriver)
+        // {
+        //     foreach ($selectedDriver as $key => $driver) {
+        //         $output.='<tr>'.
+        //         '<td><img src="Images/vanDriver/ProfilePictures/'.$driver->photo.' width="100"></td>'.
+        //         '<td>'.$driver->firstName.'</td>'.
+        //         '<td>'.$driver->email.'</td>'.
+        //         '<td>'.$driver->mobileNumber.'</td>'.
+        //         '<td>'.$driver->province.'</td>'.
+        //         '<td>'.$driver->city.'</td>'.
+        //         '<td>'.'<button type="submit" class="btn btn-success btn-block">Add </button>'.'</td>'.
+        //         '</tr>';
+        //     }
+        //     return Response($output);
+            // <img src="{{url('Images/vanDriver/ProfilePictures')}}/$driver->photo" width="100">
         }    
 
-       }
+       
     }
 
     /**

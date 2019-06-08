@@ -14,7 +14,8 @@ class AddStudentParentEmailToChildrens extends Migration
     public function up()
     {
         Schema::table('childrens', function (Blueprint $table) {
-            $table->string('studentParentEmail')->nullable()->first();
+            $table->string('studentparentemail')->nullable();
+            $table->foreign('studentparentemail')->references('email')->on('student_parents')->onDelete('restrict')->onUpdate('restrict');
         });
     }
 
