@@ -8,7 +8,7 @@ class Vehicle extends Model
 {
     protected $table='vehicles';//Not sure whether this is want or not
 	
-    public function studentParent()
+    public function vanOwner()
     {
     	return $this->belongsTo('vanOwner');
     }

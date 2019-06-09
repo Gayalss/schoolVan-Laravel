@@ -53,7 +53,7 @@
             <label class="form-check-label" for="exampleCheck1">Check me out</label>
           </div>
           <button type="submit" class="btn btn-primary btn-lg btn-block">Log In</button><br>
-          <label>Forgot password??<a href="" style="color:blue"> Click here</a></label> <br>
+          <label>Forgot password??<a href="{{ route('vanOwner.password.request')}}" style="color:blue"> Click here</a></label> <br>
           <label>Don't you have an account?<a href="" style="color:blue"> Sign up here</a></label> 
         </form>
       </div>

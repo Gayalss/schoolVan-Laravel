@@ -8,9 +8,9 @@ class Children extends Model
 {
 	protected $table='childrens';//Not sure whether this is want or not
 	
-    public function studenParent()
+    public function studentParent()
     {
-    	return $this->belongsTo('StudentParent','studenParentEmail'); 
+    	return $this->belongsTo('student_parent','studentparentemail'); 
 
     }
 }

@@ -128,10 +128,10 @@ Route::get('/home', 'HomeController@index');
 
     //password resets
 
-   Route::post('/password/email', 'Auth\VanOwnerForgotPasswordController@sendResetLinkEmail')->name('vanOwner.password.email');
-  Route::get('/password/reset', 'Auth\VanOwnerForgotPasswordController@showLinkRequestForm')->name('vanOwner.password.request');
+   Route::post('/password/email', 'Auth\VanOwnerForgotPasswordController@sendResetLinkEmail')->name('School.password.email');
+  Route::get('/password/reset', 'Auth\VanOwnerForgotPasswordController@showLinkRequestForm')->name('School.password.request');
   Route::post('/password/reset', 'Auth\VanOwnerResetPasswordController@reset');
-  Route::get('/password/reset/{token}', 'Auth\VanOwnerResetPasswordController@showResetForm')->name('vanOwner.password.reset');
+  Route::get('/password/reset/{token}', 'Auth\VanOwnerResetPasswordController@showResetForm')->name('School.password.reset');
   });
 
 Route::resource('UserSignUp', 'UserSignUpController');

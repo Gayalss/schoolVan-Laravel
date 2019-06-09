@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 use App\Children;
 
 use Illuminate\Http\Request;
+use Auth;
+use Image;
+use Session;
 
 class StudentParentController extends Controller
 {
@@ -24,7 +27,7 @@ class StudentParentController extends Controller
      */
     public function index()
     {   
-        $Childrens=Children::all();
+        $Childrens=Children::all()->where('studentparentemail', Auth::user()->email);
         return view('StudentParent/studentParent')->with('Childrens', $Childrens);
     }
 

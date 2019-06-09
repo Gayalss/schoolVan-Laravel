@@ -30,6 +30,30 @@ class VanOwner extends Authenticatable
         'password', 'remember_token',
     ];
 
+
+
+
+    public function vanroutes()
+    {
+        return $this->hasMany('App\SchoolVanRoute');
+    }
+
+
+    public function routeSchools()
+    {
+        return $this->hasMany('App\RouteSchool');
+    }
+
+    public function routeCheckPoints()
+    {
+        return $this->hasMany('App\RouteCheckPoint');
+    }
+
+    
+
+
+
+
     public function vehicles()
     {
         return $this->hasMany('App\Vehicle');

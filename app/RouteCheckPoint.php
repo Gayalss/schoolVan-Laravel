@@ -4,14 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class RouteSchool extends Model
+class RouteCheckPoint extends Model
 {	
-	protected $table='routes_schools';
-    
-    public function vanOwnerRouteSchool()
+	protected $table='school_route_check_points';
+	
+    public function vanOwnerRouteCheckPoint()
     {
     	return $this->belongsTo('van_owners','vanowneremail'); 
 
     }
-    
 }

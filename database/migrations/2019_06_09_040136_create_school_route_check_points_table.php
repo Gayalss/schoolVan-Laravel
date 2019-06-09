@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRoutesSchoolsTable extends Migration
+class CreateSchoolRouteCheckPointsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateRoutesSchoolsTable extends Migration
      */
     public function up()
     {
-        Schema::create('routes_schools', function (Blueprint $table) {
+        Schema::create('school_route_check_points', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('vanowneremail');
             $table->foreign('vanowneremail')->references('email')->on('van_owners')->onDelete('restrict')->onUpdate('restrict');
-            $table->String('schoolName');
+            $table->String('checkPoint');
             $table->timestamps();
-            
         });
     }
 
@@ -30,6 +29,6 @@ class CreateRoutesSchoolsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('routes_schools');
+        Schema::dropIfExists('school_route_check_points');
     }
 }

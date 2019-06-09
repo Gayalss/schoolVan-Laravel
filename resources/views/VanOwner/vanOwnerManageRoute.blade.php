@@ -1,5 +1,5 @@
 @extends('layouts.schoolVanOwnerLayout')
-@section('active6')
+@section('active5')
 active
 @endsection
 
@@ -55,6 +55,7 @@ active
       <div class="col-md-4"></div>
       <div class="col-md-4"><a href="{{route('routes.create')}}" class="btn btn-success" style="margin-left:35%">Add Route</a>
       </div>
+     
       
     </div>
 
@@ -62,47 +63,47 @@ active
       <hr>
       <div class="row">
         <div class="col-md-12">
-          <h1 style="text-align: center; margin:auto;margin-top:10px;margin-bottom:10px">Vehicles</h1>
+          <h1 style="text-align: center; margin:auto;margin-top:10px;margin-bottom:10px">Routes</h1>
           <table  class="table table-hover table-responsive-lg">
             <thead>
               <tr>
           
-                <th scope="col">Photo</th>
-                <th scope="col">Vehicle Type</th>
+                <th scope="col">Driver Photo</th>
+                <th scope="col">Driver Name</th>
+                <th scope="col">Vehicle Photo</th>
                 <th scope="col">Vehicle Model</th>
-                <th scope="col">Color</th>
-                <th scope="col">Total Seats</th>
-                <th scope="col">Number Plate</th>
-                <th scope="col">Manufactured Year</th>
-                <th scope="col">Action</th>
+                <th scope="col">Trip Type</th>
+                <th scope="col">School Time</th>
+                <th scope="col">Schools</th>
+                <th scope="col">Check Points</th>
 
               </tr>
             </thead>
             <tbody>
-              {{-- @foreach($Vehicles as $Vehicle)
-                <tr class="table table-bordered table-striped table-light">
+              {{-- @foreach($SchoolVanRoutes as $SchoolVanRoute) --}}
+                {{-- <tr class="table table-bordered table-striped table-light"> --}}
             
-                  <td><img src="{{url('Images/vanOwner/Vehicles')}}/{{$Vehicle->photo}}" width="100"></td>
-                  <td>{{$Vehicle->vehicleType}}</td>
-                  <td>{{$Vehicle->vehicleModel}}</td>
-                  <td>{{$Vehicle->color}}</td>
-                  <td>{{$Vehicle->totalSeats}}</td>
-                  <td>{{$Vehicle->numberPlate}}</td>
-                  <td>{{$Vehicle->manufacturedYear}}</td>
-                  <td>
-                  <form action="{{route('manageVan.destroy',$Vehicle->id)}}" method="POST">
-                    {{@csrf_field()}}
+                  {{-- <td><img src="{{url('Images/vanOwner/Vehicles')}}/{{$Vehicle->photo}}" width="100"></td> --}}
+                  {{-- <td>{{$SchoolVanRoute->vanOwnerEmail}}</td> --}}
+                  {{-- <td>{{$SchoolVanRoute->selectVehicle}}</td> --}}
+                  {{-- <td>{{$SchoolVanRoute->selectDriver}}</td> --}}
+                  {{-- <td>{{$SchoolVanRoute->tripType}}</td> --}}
+                  {{-- <td>{{$SchoolVanRoute->schoolTime}}</td> --}}
+                  {{-- <td>{{$SchoolVanRoute->manufacturedYear}}</td> --}}
+                  {{-- <td> --}}
+                  {{-- <form action="{{route('manageVan.destroy',$Vehicle->id)}}" method="POST"> --}}
+                    {{-- {{@csrf_field()}} --}}
 
-                    @method('DELETE')
+                    {{-- @method('DELETE') --}}
 
                     
-                    <a class="btn btn-sm btn-warning btn-block" href="{{route('manageVan.edit', $Vehicle->id)}}">Edit</a>
-                    <button type="submit" class="btn btn-sm btn-danger btn-block">Delete</button>
-                  </form>
-                  </td>
+                    {{-- <a class="btn btn-sm btn-warning btn-block" href="{{route('manageVan.edit', $Vehicle->id)}}">Edit</a> --}}
+                    {{-- <button type="submit" class="btn btn-sm btn-danger btn-block">Delete</button> --}}
+                  {{-- </form> --}}
+                  {{-- </td> --}}
 
-                </tr>
-              @endforeach --}}
+                {{-- </tr> --}}
+              {{-- @endforeach --}}
             </tbody>
           
           </table>

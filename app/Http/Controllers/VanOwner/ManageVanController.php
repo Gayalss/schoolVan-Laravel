@@ -24,7 +24,7 @@ class ManageVanController extends Controller
 
     public function index()
     {   
-        $Vehicles=Vehicle::all();
+        $Vehicles=Vehicle::all()->where('vanOwnerEmail', Auth::user()->email);;
         return view('/VanOwner/vanOwnerManageVan')->with('Vehicles', $Vehicles);
     }
 

@@ -24,7 +24,7 @@ class ChildrenManageController extends Controller
 
     public function index()
     {
-        $Childrens=Children::all();
+        $Childrens=Children::all()->where('studentparentemail', Auth::user()->email);
         return view('/StudentParent/studentParent-ManageChildren')->with('Childrens', $Childrens);
     }
 
